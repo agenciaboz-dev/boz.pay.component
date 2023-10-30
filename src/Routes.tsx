@@ -11,7 +11,7 @@ interface RoutesProps {}
 export const Routes: React.FC<RoutesProps> = ({}) => {
     return (
         <ReactRoutes>
-            <Route index element={<Home />} />
+            <Route index element={<WildCard />} />
             <Route path="/pay/:orderId" element={<Pay />} />
             <Route path="/paid" element={<Paid />} />
             <Route path="/pix" element={<Pix />} />
