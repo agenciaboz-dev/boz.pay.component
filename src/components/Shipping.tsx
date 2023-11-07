@@ -38,16 +38,22 @@ export const Shipping: React.FC<ShippingProps> = ({ order }) => {
         >
             <p>ENDEREÇO DE ENTREGA</p>
 
-            <Box sx={{ flexDirection: "column", color: "black", gap: "0.5vw", fontWeight: "bold", marginBottom: isMobile? 0 : "1vw" }}>
-                <p>{shipping.address_1}</p>
-                <p>{shipping.address_2}</p>
-                <p>{shipping.city}</p>
+            <Box sx={{ flexDirection: "column", color: "black", gap: "0.5vw", fontWeight: "bold", marginBottom: isMobile ? 0 : "1vw" }}>
+                <p>
+                    {shipping.address.address}. {shipping.address.number}
+                </p>
+                <p>
+                    {shipping.address.district}. {shipping.address.complement}
+                </p>
+                <p>
+                    {shipping.address.city}. {shipping.address.state}
+                </p>
             </Box>
 
             {quoteList ? (
                 <QuoteDetails quoteList={quoteList} order={order} />
             ) : (
-                <Skeleton variant="rounded" sx={{ width: isMobile? "100%" : "25vw", height: "5vw", borderRadius: "1vw", alignSelf: "center" }} />
+                <Skeleton variant="rounded" sx={{ width: isMobile ? "100%" : "100%", height: "5vw", borderRadius: "1vw", alignSelf: "center" }} />
             )}
         </Box>
     )

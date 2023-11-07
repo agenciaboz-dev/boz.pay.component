@@ -15,7 +15,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
 
     const data: { order: Order; qrcode: QrCode } = useLocation().state.data
 
-    const total = `R$ ${data.order.total.replace(".", ",")}`
+    const total = `R$ ${data.order.total.toString().replace(".", ",")}`
     const width = window.innerWidth
 
     const io = useIo()
@@ -76,7 +76,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
                 overflow: "hidden",
                 alignItems: "center",
             }}
-            >
+        >
             <Header />
             <Box
                 sx={{
@@ -84,19 +84,19 @@ export const Pix: React.FC<PixProps> = ({}) => {
                     alignItems: "center",
                     height: "100vh",
                     overflowY: "auto",
-                    gap: isMobile? "2vw" : "1vw",
-                    padding: isMobile? "0 0 20vw 0" : "2vw 0 10vw 0",
+                    gap: isMobile ? "2vw" : "1vw",
+                    padding: isMobile ? "0 0 20vw 0" : "2vw 0 10vw 0",
                 }}
             >
-                <SuccessText email={data.order.billing.email} />
+                <SuccessText email={data.order.billing.personalData.email} />
                 <Box
                     sx={{
                         border: `1px solid ${colors.border}`,
                         borderRadius: "2vw",
-                        width: isMobile? "90vw" : "80vw",
-                        padding: isMobile? "5vw" : "1vw",
+                        width: isMobile ? "90vw" : "80vw",
+                        padding: isMobile ? "5vw" : "1vw",
                         flexDirection: "column",
-                        gap: isMobile? "5vw" : "1vw",
+                        gap: isMobile ? "5vw" : "1vw",
                         alignItems: "center",
                     }}
                 >
@@ -105,11 +105,11 @@ export const Pix: React.FC<PixProps> = ({}) => {
                         sx={{
                             flexDirection: "column",
                             borderTop: `1px solid ${colors.border}`,
-                            padding: isMobile? "5vw 0 0" : "1vw 0",
-                            gap: isMobile? "2vw" : "1vw",
+                            padding: isMobile ? "5vw 0 0" : "1vw 0",
+                            gap: isMobile ? "2vw" : "1vw",
                             fontWeight: "normal",
                             textAlign: "center",
-                            width: "100%"
+                            width: "100%",
                         }}
                     >
                         <p>Você pode utilizar a câmera do seu celular para ler o QR CODE ou copiar o código e pagar no aplicativo de seu banco:</p>
@@ -117,10 +117,10 @@ export const Pix: React.FC<PixProps> = ({}) => {
                             sx={{
                                 flexDirection: "column",
                                 alignItems: "center",
-                                gap: isMobile? "5vw" : "1vw",
+                                gap: isMobile ? "5vw" : "1vw",
                             }}
                         >
-                            <QRCode value={data.qrcode.text} size={isMobile? (width * 0.8) : (width * 0.2)} bgColor={colors.background} />
+                            <QRCode value={data.qrcode.text} size={isMobile ? width * 0.8 : width * 0.2} bgColor={colors.background} />
                             <Button variant="contained" sx={{ alignSelf: "center", color: "white" }} onClick={handleCopy}>
                                 Copiar código
                             </Button>

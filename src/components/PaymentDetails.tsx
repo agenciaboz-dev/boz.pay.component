@@ -47,7 +47,7 @@ export const PaymentDetails: React.FC<PaymentDetailsProps> = ({ order, paymentMe
                     setParcelamento(Number(ev.target.value))
                     setInstallments(Number(ev.target.value))
                 }}
-                size={isMobile? "medium" : "small"}
+                size={isMobile ? "medium" : "small"}
             >
                 {getParcelas(totalValue).map((item) => (
                     <MenuItem key={item.id} value={item.id}>
@@ -62,7 +62,7 @@ export const PaymentDetails: React.FC<PaymentDetailsProps> = ({ order, paymentMe
         </Box>
     ) : (
         <>
-            <Skeleton variant="rounded" sx={{ width: isMobile? "100%" : "30vw", height: "7vw", borderRadius: "1vw" }} />
+            <Skeleton variant="rounded" sx={{ width: isMobile ? "100%" : "100%", height: "7vw", borderRadius: "1vw" }} />
         </>
     )
 }

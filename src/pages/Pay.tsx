@@ -13,19 +13,22 @@ import { getPaymentForm } from "../tools/paymentForm"
 import { Form, Formik, FormikProps } from "formik"
 import { PaymentForm } from "../components/PaymentForm"
 import { useSnackbar } from "burgos-snackbar"
-import { encrypt } from "../tools/pagseguro_script"
 import { LoadingOverlay } from "../components/LoadingOverlay"
 import { useTotalValue } from "../hooks/useTotalValue"
 import { DebitAuthenticator } from "../components/DebitAuthenticator"
+import { usePagseguro } from "../hooks/usePagseguro"
+import { useSettings } from "../hooks/useSettings"
 
 interface PayProps {}
 
 export const Pay: React.FC<PayProps> = ({}) => {
     const isMobile = useMediaQuery("(orientation: portrait)")
     const io = useIo()
-    const orderId = Number(useParams().orderId)
     const navigate = useNavigate()
+    const settings = useSettings()
+    const orderId = settings.referenceId
 
+    const { encrypt } = usePagseguro()
     const { snackbar } = useSnackbar()
     const { setTotalValue, totalValue } = useTotalValue()
 
@@ -33,11 +36,11 @@ export const Pay: React.FC<PayProps> = ({}) => {
     const [order, setOrder] = useState<Order>()
     const [loading, setLoading] = useState(false)
 
-    const initialValues = getPaymentForm(paymentMethod, order?.billing, order?.shipping)
+    const initialValues = getPaymentForm(paymentMethod, order?.billing)
 
     const handleSubmit = useCallback(
         async (values: Form | CardForm) => {
-            if (totalValue.toFixed(2) == order?.total) {
+            if (Number(totalValue.toFixed(2)) == order?.total) {
                 snackbar({ severity: "error", text: "Selecione um frete" })
                 return
             }
@@ -54,7 +57,16 @@ export const Pay: React.FC<PayProps> = ({}) => {
                 }
             }
 
-            const data = { ...values, id: order?.id, method: paymentMethod, total: totalValue.toFixed(2), encrypted }
+            const pagseguro = { sandbox: !!settings.sandbox, token: settings.sandbox ? settings.pagseguroTokenSandbox : settings.pagseguroToken }
+            const data = {
+                ...values,
+                id: order?.id,
+                method: paymentMethod,
+                total: totalValue.toFixed(2),
+                encrypted,
+                store: settings.storeIdentifier,
+                pagseguro,
+            }
             console.log(data)
 
             setLoading(true)
@@ -126,9 +138,11 @@ export const Pay: React.FC<PayProps> = ({}) => {
     }, [order])
 
     useEffect(() => {
-        io.emit("order:get", orderId)
+        io.emit("order:get", { referenceId: orderId, store: settings.storeIdentifier })
+        console.log({ orderId })
 
         io.on("order", (data) => {
+            console.log(data)
             setOrder(data)
         })
 
@@ -158,6 +172,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
                 fontWeight: "bold",
                 flexDirection: "column",
                 overflow: "hidden",
+                width: "100%",
             }}
         >
             <LoadingOverlay open={loading} />
@@ -185,7 +200,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
                                 }}
                             >
                                 <PaymentForm {...formikProps} paymentMethod={paymentMethod} />
-                                <Box sx={{ flexDirection: "column", gap: isMobile ? "5vw" : "1vw", width: isMobile ? "90vw" : "30vw" }}>
+                                <Box sx={{ flexDirection: "column", gap: isMobile ? "5vw" : "1vw", width: isMobile ? "90%" : "30%" }}>
                                     <OrderDetails order={order} />
                                     <PaymentDetails
                                         order={order}

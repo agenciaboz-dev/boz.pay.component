@@ -24,7 +24,7 @@ export const Paid: React.FC<PaidProps> = ({}) => {
         useLocation().state.data
 
     const quote = `R$ ${(totalValue - Number(data.order.total)).toFixed(2).toString().replace(".", ",")}`
-    const subtotal = `R$ ${data.order.total.replace(".", ",")}`
+    const subtotal = `R$ ${data.order.total.toString().replace(".", ",")}`
     const total = `R$ ${totalValue.toFixed(2).toString().replace(".", ",")}`
     const installments = getParcelas(totalValue.toFixed(2).toString())
 
@@ -47,7 +47,7 @@ export const Paid: React.FC<PaidProps> = ({}) => {
             }}
         >
             <Header />
-            <SuccessText email={data.order.billing.email} />
+            <SuccessText email={data.order.billing.personalData.email} />
 
             <Box
                 sx={{

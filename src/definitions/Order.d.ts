@@ -1,49 +1,54 @@
 declare interface Order {
     id: number
+    referenceId: string
+    store: string
     status: string
-    date_created: string
-    date_modified: string
-    total: string
-    customer_id: number
-    order_key: string
-    cart_hash: string
-
-    pag_status: string
-    error_status?: string
+    dateCreated: string
+    dateModified: string
+    total: number
+    customerId?: string
+    pag_error?: string
 
     billing: Billing
     shipping: Shipping
+    products: Product[]
+}
+
+declare interface Product {
+    id: number
+    name: string
+    price: number
+    quantity: number
+    referenceId: string
+}
+
+declare interface Address {
+    id: number
+    address: string
+    district: string
+    city: string
+    state: string
+    postcode: string
+    number: string
+    complement?: string
+}
+
+declare interface PersonalData {
+    id: number
+    name: string
+    cpf: string
+    phone: string
+    email: string
 }
 
 declare interface Billing {
     id: number
-    first_name: string
-    last_name: string
-    company: string
-    address_1: string
-    address_2: string
-    city: string
-    state: string
-    postcode: string
-    country: string
-    email: string
-    phone: string
+    personalData: PersonalData
+    address: Address
 }
 
 declare interface Shipping {
     id: number
-    first_name: string
-    last_name: string
-    company: string
-    address_1: string
-    address_2: string
-    city: string
-    state: string
-    postcode: string
-    country: string
-    phone: string
-
-    cpf: string
-    district: string
-    number: string
+    personalData: PersonalData
+    address: Address
 }

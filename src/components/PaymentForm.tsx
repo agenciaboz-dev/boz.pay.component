@@ -34,7 +34,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
         <Box
             sx={{
                 flexDirection: isMobile ? "column" : "row",
-                width: isMobile ? "90vw" : "60vw",
+                width: isMobile ? "90%" : "60%",
                 gap: "2vw",
                 paddingRight: isMobile ? 0 : "2vw",
             }}
@@ -45,7 +45,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                     // flexWrap: "wrap",
                     gap: isMobile ? "5vw" : "2vw",
                     height: isMobile ? "auto" : "70vh",
-                    width: isMobile ? "90vw" : paymentMethod == "card" ? "46.5%" : "100%",
+                    width: isMobile ? "100%" : paymentMethod == "card" ? "46.5%" : "100%",
                 }}
             >
                 <Box sx={{ flexDirection: "column", gap: isMobile ? "5vw" : "1vw" }}>

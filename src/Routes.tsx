@@ -9,15 +9,15 @@ import { Boleto } from "./pages/Boleto"
 interface RoutesProps {}
 
 export const Routes: React.FC<RoutesProps> = ({}) => {
+
     return (
         <ReactRoutes>
-            <Route index element={<WildCard />} />
-            <Route path="/pay/:orderId" element={<Pay />} />
+            <Route index element={<Pay />} />
+            <Route path="/pay" element={<Pay />} />
             <Route path="/paid" element={<Paid />} />
             <Route path="/pix" element={<Pix />} />
             <Route path="/boleto" element={<Boleto />} />
-            <Route path="*" element={<WildCard />} />
-            {/* <Route path="signup" element={<Signup />} /> */}
+            <Route path="*" element={<Pay />} />
         </ReactRoutes>
     )
 }

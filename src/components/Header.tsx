@@ -11,15 +11,15 @@ export const Header: React.FC<HeaderProps> = ({}) => {
     return (
         <Box
             sx={{
-                width: "100vw",
+                width: "100%",
                 justifyContent: "center",
                 alignItems: "center",
-                height: isMobile? "15vw" : "5vw",
+                height: isMobile ? "15vw" : "5vw",
                 borderBottom: `1px solid ${colors.border}`,
                 bgcolor: "white",
             }}
         >
-            <img src={logo} alt="Boz" style={{ width: isMobile? "15vw" : "5vw" }} />
+            <img src={logo} alt="Boz" style={{ width: isMobile ? "15vw" : "5vw" }} />
         </Box>
     )
 }

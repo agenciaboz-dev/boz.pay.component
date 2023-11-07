@@ -2,8 +2,8 @@ import React, { useEffect } from "react"
 import { useIo } from "../hooks/useIo"
 import { useTotalValue } from "../hooks/useTotalValue"
 import { FormikProps } from "formik"
-import { authenticate } from "../tools/pagseguro_script"
 import { useSnackbar } from "burgos-snackbar"
+import { usePagseguro } from "../hooks/usePagseguro"
 
 export const DebitAuthenticator: React.FC<FormikProps<CardForm> & { submit: (values: CardForm) => void; setLoading: (loading: boolean) => void }> = ({
     values,
@@ -13,6 +13,7 @@ export const DebitAuthenticator: React.FC<FormikProps<CardForm> & { submit: (val
     const io = useIo()
     const { totalValue } = useTotalValue()
     const { snackbar } = useSnackbar()
+    const { authenticate } = usePagseguro()
 
     useEffect(() => {
         io.on("pagseguro:3ds", async (session: PagseguroSession) => {
