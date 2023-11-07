@@ -95,7 +95,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
                     padding: isMobile ? "0 0 20vw 0" : "2vw 0 10vw 0",
                 }}
             >
-                <SuccessText email={data.order.billing.email} />
+                <SuccessText email={data.order.billing.personalData.email} />
                 <Box
                     sx={{
                         border: `1px solid ${colors.border}`,
