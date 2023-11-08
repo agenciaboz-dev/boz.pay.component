@@ -188,6 +188,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
                                 height: isMobile ? "100vh" : "90vh",
                                 overflowX: "hidden",
                                 overflowY: "auto",
+                                width: "100%",
                             }}
                         >
                             <PaymentMethods paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />
@@ -200,7 +201,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
                                 }}
                             >
                                 <PaymentForm {...formikProps} paymentMethod={paymentMethod} />
-                                <Box sx={{ flexDirection: "column", gap: isMobile ? "5vw" : "1vw", width: isMobile ? "90%" : "30%" }}>
+                                <Box sx={{ flexDirection: "column", gap: isMobile ? "5vw" : "1vw", width: isMobile ? "100%" : "30%" }}>
                                     <OrderDetails order={order} />
                                     <PaymentDetails
                                         order={order}

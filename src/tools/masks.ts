@@ -1,8 +1,8 @@
-const cpf = "000.000.000-00"
-const phone = "(00) 0 0000-0000"
-const date = "00/00/0000"
-const cep = "00.000-000"
-const cardNumber = "0000 0000 0000 0000"
-const expiry = "00/0000"
+const cpf = [/\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/, /\d/]
+const phone = ["(", /\d/, /\d/, ")", " ", /\d/, " ", /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/]
+const date = [/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]
+const cep = [/\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/]
+const cardNumber = [/\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
+const expiry = [/\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]
 
 export default { cpf, phone, date, cep, cardNumber, expiry }

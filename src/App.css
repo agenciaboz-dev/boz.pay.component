@@ -1,23 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-@font-face {
+.bozpay * {
     font-family: Montserrat;
-    src: url("/fonts/Montserrat-Regular.ttf") ;
-}
-
-/* @font-face {
-    font-family: Montserrat;
-    src: url("../public/fonts/Montserrat-SemiBold.ttf") ;
-    font-weight: 200 400;
-} */
-
-@font-face {
-    font-family: Montserrat;
-    src: url("/fonts/Montserrat-Bold.ttf") ;
-    font-weight: bold;
 }
 
 
-.MuiList-root {
+.bozpay .MuiList-root {
     width: 100%;
 }
 
@@ -25,7 +13,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Montserrat;
     /* user-select: none; */
 }
 
@@ -33,12 +20,12 @@
     width: 100%;
 }
 
-/* .slide-routes {
+.bozpay /* .slide-routes {
     width: 100%;
     overflow-y: auto!important;
     height: 100%;
 
-    .item {
+    .bozpay .item {
         width: 100%;
         height: 100%;
 
@@ -46,44 +33,44 @@
 } */
 
 
-form {
+.bozpay form {
     display: contents;
     width: 100%;
 }
 
-html {
+.bozpay html {
     scroll-behavior: smooth;
     height: 100%;
 }
 
-body {
+.bozpay body {
     overflow-x: hidden;
     height: 100%;
 }
 
-#root {
+.bozpay #root {
     height: 100%;
 }
 
-section {
+.bozpay section {
     display: contents;
 }
 
-div {
+.bozpay div {
     display: flex;
     flex-shrink: 0
 }
 
-img {
+.bozpay img {
     object-fit: contain;
 }
 
-::-webkit-scrollbar {
+.bozpay ::-webkit-scrollbar {
     width: 0;
     height: 0;
   }
 
-::selection {
+.bozpay ::selection {
     color: white;
     background: #00AFEF
 }
