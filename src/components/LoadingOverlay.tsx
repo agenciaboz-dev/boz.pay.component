@@ -18,11 +18,11 @@ export const LoadingOverlay: React.FC<LoadingOverlayProps> = ({ open }) => {
                 sx: {
                     flexDirection: "column",
                     alignItems: "center",
-                    maxWidth: "100vw",
+                    maxWidth: "100%",
                     margin: 0,
                     height: "100vh",
                     maxHeight: "100vh",
-                    width: "100vw",
+                    width: "100%",
                     background: "transparent",
                     justifyContent: "center",
                     gap: isMobile ? "8vw" : "2vw",

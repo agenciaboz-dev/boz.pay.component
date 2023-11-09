@@ -24,7 +24,7 @@ export const BozPay: React.FC<BozPayProps> = ({
     referenceId,
 }) => {
     return (
-        <Box sx={{ width: "100vw", ...wrapperSx }} className="bozpay">
+        <Box sx={{ width: "100%", ...wrapperSx }} className="bozpay">
             <SettingsProvider
                 storeIdentifier={storeIdentifier}
                 pagseguroToken={pagseguroToken}

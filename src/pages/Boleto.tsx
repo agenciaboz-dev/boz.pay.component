@@ -82,6 +82,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
                 flexDirection: "column",
                 overflow: "hidden",
                 alignItems: "center",
+                width: "100%"
             }}
         >
             <Header />
@@ -93,6 +94,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
                     overflowY: "auto",
                     gap: isMobile ? "2vw" : "1vw",
                     padding: isMobile ? "0 0 20vw 0" : "2vw 0 10vw 0",
+                    width: "100%"
                 }}
             >
                 <SuccessText email={data.order.billing.personalData.email} />

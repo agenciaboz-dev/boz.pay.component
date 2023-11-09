@@ -44,6 +44,7 @@ export const Paid: React.FC<PaidProps> = ({}) => {
                 overflow: "hidden",
                 alignItems: "center",
                 gap: "3vw",
+                width: "100%"
             }}
         >
             <Header />

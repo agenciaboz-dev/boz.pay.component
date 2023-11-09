@@ -13,7 +13,7 @@ export const WildCard: React.FC<WildCardProps> = ({}) => {
         <Box
             sx={{
                 flexDirection: "column",
-                width: "100vw",
+                width: "100%",
                 height: "100vh",
                 backgroundColor: colors.primary,
                 color: "secondary.main",
