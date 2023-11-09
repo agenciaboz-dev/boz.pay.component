@@ -77,7 +77,7 @@ export const usePagseguro = () => {
                             type: "DEBIT_CARD",
                             installments: 1,
                             card: {
-                                number: order.cardNumber,
+                                number: order.cardNumber.replace(/\D/g, ""),
                                 expMonth: expiryMonth,
                                 expYear: expiryYear,
                                 holder: {
