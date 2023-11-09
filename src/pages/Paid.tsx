@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { SuccessText } from "../components/SuccessText"
 import { getParcelas } from "../tools/parcelas"
 import { useTotalValue } from "../hooks/useTotalValue"
+import { Order } from "../definitions/Order"
 
 interface PaidProps {}
 

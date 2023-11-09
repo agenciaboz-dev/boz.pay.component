@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Skeleton, useMediaQuery } from "@mui/material"
 import colors from "../style/colors"
 import { Shipping } from "./Shipping"
+import { Order } from "../definitions/Order"
 
 interface OrderDetailsProps {
     order?: Order

@@ -52,3 +52,5 @@ declare interface Shipping {
     personalData: PersonalData
     address: Address
 }
+
+export type { Order, Product, Address, PersonalData, Billing, Shipping }

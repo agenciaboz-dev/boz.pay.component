@@ -1,3 +1,5 @@
+import { Billing } from "../definitions/Order"
+
 export const getPaymentForm = (method: PaymentMethod, billing?: Billing) => {
     const notCard = {
         name: billing?.personalData.name || "",

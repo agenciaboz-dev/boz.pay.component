@@ -18,6 +18,7 @@ import { useTotalValue } from "../hooks/useTotalValue"
 import { DebitAuthenticator } from "../components/DebitAuthenticator"
 import { usePagseguro } from "../hooks/usePagseguro"
 import { useSettings } from "../hooks/useSettings"
+import { Order } from "../definitions/Order"
 
 interface PayProps {}
 
@@ -98,6 +99,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
                             },
                         },
                     })
+                    settings.onPaid(charge)
                 } else {
                     snackbar({ severity: "error", text: charge.payment_response.message })
                 }

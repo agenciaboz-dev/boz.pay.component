@@ -7,6 +7,7 @@ import { Header } from "../components/Header"
 import { QRCode } from "react-qrcode-logo"
 import { useSnackbar } from "burgos-snackbar"
 import { useIo } from "../hooks/useIo"
+import { Order } from "../definitions/Order"
 
 interface PixProps {}
 

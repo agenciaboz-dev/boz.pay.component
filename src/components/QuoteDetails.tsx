@@ -3,6 +3,7 @@ import { Box, MenuItem, TextField, useMediaQuery } from "@mui/material"
 import { QuoteComponent } from "./QuoteComponent"
 import { CurrencyText } from "./CurrencyText"
 import { useTotalValue } from "../hooks/useTotalValue"
+import { Order } from "../definitions/Order"
 
 interface QuoteDetailsProps {
     quoteList: Quote[]

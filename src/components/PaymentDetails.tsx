@@ -4,6 +4,7 @@ import colors from "../style/colors"
 import { CurrencyText } from "./CurrencyText"
 import { getParcelas } from "../tools/parcelas"
 import { useTotalValue } from "../hooks/useTotalValue"
+import { Order } from "../definitions/Order"
 
 interface PaymentDetailsProps {
     order?: Order

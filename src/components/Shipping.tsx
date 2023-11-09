@@ -3,6 +3,7 @@ import { Box, Skeleton, useMediaQuery } from "@mui/material"
 import colors from "../style/colors"
 import { useIo } from "../hooks/useIo"
 import { QuoteDetails } from "./QuoteDetails"
+import { Order } from "../definitions/Order"
 
 interface ShippingProps {
     order: Order

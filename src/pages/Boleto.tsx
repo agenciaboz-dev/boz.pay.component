@@ -9,6 +9,7 @@ import { useSnackbar } from "burgos-snackbar"
 import { useIo } from "../hooks/useIo"
 import { useTotalValue } from "../hooks/useTotalValue"
 import PrintIcon from "@mui/icons-material/Print"
+import { Order } from "../definitions/Order"
 
 interface BoletoProps {}
 
