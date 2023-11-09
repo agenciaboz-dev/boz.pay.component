@@ -1,7 +1,10 @@
 export const splitPhoneNumber = (phone: string): { areaCode: string; number: string } => {
     const matches = phone.match(/\((\d{2})\)\s(\d{5}-\d{4})/)
     if (!matches) {
-        throw new Error("Invalid phone format")
+        return {
+            areaCode: phone.slice(0, 2),
+            number: phone.slice(2),
+        }
     }
     return {
         areaCode: matches[1],
