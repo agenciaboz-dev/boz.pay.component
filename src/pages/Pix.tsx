@@ -8,11 +8,13 @@ import { QRCode } from "react-qrcode-logo"
 import { useSnackbar } from "burgos-snackbar"
 import { useIo } from "../hooks/useIo"
 import { Order } from "../definitions/Order"
+import { useSettings } from "../hooks/useSettings"
 
 interface PixProps {}
 
 export const Pix: React.FC<PixProps> = ({}) => {
-    const isMobile = useMediaQuery('(orientation: portrait)')
+    const isMobile = useMediaQuery("(orientation: portrait)")
+    const settings = useSettings()
 
     const data: { order: Order; qrcode: QrCode } = useLocation().state.data
 
@@ -51,6 +53,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
                             },
                         },
                     })
+                    settings.onPaid(charge)
                 } else {
                     snackbar({ severity: "error", text: charge.payment_response.message })
                 }
@@ -76,7 +79,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
                 flexDirection: "column",
                 overflow: "hidden",
                 alignItems: "center",
-                width: "100%"
+                width: "100%",
             }}
         >
             <Header />
@@ -89,7 +92,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
                     overflowY: "auto",
                     gap: isMobile ? "2vw" : "1vw",
                     padding: isMobile ? "0 0 20vw 0" : "2vw 0 10vw 0",
-                    width: "100%"
+                    width: "100%",
                 }}
             >
                 <SuccessText email={data.order.billing.personalData.email} />
