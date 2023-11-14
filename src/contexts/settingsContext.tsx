@@ -11,6 +11,7 @@ interface SettingsContextValue {
     onPaid: (charge: Charge) => void
 
     sandbox?: boolean
+    params?: boolean
 }
 
 interface SettingsProviderProps {
@@ -25,6 +26,7 @@ interface SettingsProviderProps {
     onPaid: (charge: Charge) => void
 
     sandbox?: boolean
+    params?: boolean
 }
 
 const SettingsContext = createContext<SettingsContextValue>({} as SettingsContextValue)
@@ -40,10 +42,11 @@ export const SettingsProvider: React.FC<SettingsProviderProps> = ({
     sandbox,
     referenceId,
     onPaid,
+    params,
 }) => {
     return (
         <SettingsContext.Provider
-            value={{ storeIdentifier, pagseguroToken, pagseguroTokenSandbox, creditCardPublicKey, sandbox, referenceId, onPaid }}
+            value={{ storeIdentifier, pagseguroToken, pagseguroTokenSandbox, creditCardPublicKey, sandbox, referenceId, onPaid, params }}
         >
             {children}
         </SettingsContext.Provider>

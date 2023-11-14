@@ -14,8 +14,11 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (settings.referenceId) navigate("/")
-    }, [settings.referenceId])
+        if (settings.referenceId && !settings.params) {
+            console.log(`params: ${settings.params}, navigating to root`)
+            navigate("/")
+        }
+    }, [settings.referenceId, settings.params])
 
     return (
         <SnackbarProvider>

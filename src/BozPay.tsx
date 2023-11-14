@@ -13,6 +13,7 @@ interface BozPayProps {
     wrapperSx?: SxProps
     sandbox?: boolean
     onPaid: (charge: Charge) => void
+    params?: boolean
 }
 
 export const BozPay: React.FC<BozPayProps> = ({
@@ -24,6 +25,7 @@ export const BozPay: React.FC<BozPayProps> = ({
     wrapperSx,
     referenceId,
     onPaid,
+    params,
 }) => {
     return (
         <Box sx={{ width: "100%", ...wrapperSx }} className="bozpay">
@@ -35,6 +37,7 @@ export const BozPay: React.FC<BozPayProps> = ({
                 sandbox={sandbox}
                 referenceId={referenceId}
                 onPaid={onPaid}
+                params={params}
             >
                 <App />
             </SettingsProvider>

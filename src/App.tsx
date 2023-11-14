@@ -12,13 +12,13 @@ const Themed = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <BrowserRouter>
-                <Box sx={{ fontSize: isMobile ? "" : "1vw", width: "100%" }}>
-                    <Providers>
-                        <Routes />
-                    </Providers>
-                </Box>
-            </BrowserRouter>
+            {/* <BrowserRouter> */}
+            <Box sx={{ fontSize: isMobile ? "" : "1vw", width: "100%" }}>
+                <Providers>
+                    <Routes />
+                </Providers>
+            </Box>
+            {/* </BrowserRouter> */}
         </ThemeProvider>
     )
 }
