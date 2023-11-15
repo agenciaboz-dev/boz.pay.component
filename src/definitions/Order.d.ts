@@ -12,7 +12,10 @@ declare interface Order {
     billing: Billing
     shipping: Shipping
     products: Product[]
+    woocommerce?: Woocommerce
 }
+
+
 
 declare interface Product {
     id: number

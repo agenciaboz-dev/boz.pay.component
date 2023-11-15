@@ -19,6 +19,7 @@ import { DebitAuthenticator } from "../components/DebitAuthenticator"
 import { usePagseguro } from "../hooks/usePagseguro"
 import { useSettings } from "../hooks/useSettings"
 import { Order } from "../definitions/Order"
+import { getCredentials } from "../tools/buildPagseguroCred"
 
 interface PayProps {}
 
@@ -50,7 +51,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
             if (paymentMethod == "card") {
                 const card = values as CardForm
                 try {
-                    encrypted = await encrypt(card)
+                    encrypted = await encrypt(card, order.woocommerce)
                 } catch (error) {
                     console.error("Encryption failed:", error)
                     // Handle the error, maybe show a message to the user
@@ -58,7 +59,8 @@ export const Pay: React.FC<PayProps> = ({}) => {
                 }
             }
 
-            const pagseguro = { sandbox: !!settings.sandbox, token: settings.sandbox ? settings.pagseguroTokenSandbox : settings.pagseguroToken }
+            const pagseguro = getCredentials(settings, order.woocommerce)
+
             const data = {
                 ...values,
                 id: order?.id,

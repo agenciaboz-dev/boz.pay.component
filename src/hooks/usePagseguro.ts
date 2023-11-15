@@ -4,7 +4,7 @@ import { useSettings } from "./useSettings"
 export const usePagseguro = () => {
     const settings = useSettings()
 
-    const encrypt = (card: Card): Promise<string> => {
+    const encrypt = (card: Card, woocommerce?: Woocommerce): Promise<string> => {
         return new Promise((resolve, reject) => {
             const script = document.createElement("script")
             document.body.appendChild(script) // Appending the script to the body
@@ -21,7 +21,7 @@ export const usePagseguro = () => {
                 const pagseguro_card = window.PagSeguro?.encryptCard({
                     publicKey: settings.sandbox
                         ? "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr+ZqgD892U9/HXsa7XqBZUayPquAfh9xx4iwUbTSUAvTlmiXFQNTp0Bvt/5vK2FhMj39qSv1zi2OuBjvW38q1E374nzx6NNBL5JosV0+SDINTlCG0cmigHuBOyWzYmjgca+mtQu4WczCaApNaSuVqgb8u7Bd9GCOL4YJotvV5+81frlSwQXralhwRzGhj/A57CGPgGKiuPT+AOGmykIGEZsSD9RKkyoKIoc0OS8CPIzdBOtTQCIwrLn2FxI83Clcg55W8gkFSOS6rWNbG5qFZWMll6yl02HtunalHmUlRUL66YeGXdMDC2PuRcmZbGO5a/2tbVppW6mfSWG3NPRpgwIDAQAB"
-                        : settings.creditCardPublicKey,
+                        : woocommerce?.pagseguroKey || settings.creditCardPublicKey,
                     holder: card.cardOwner,
                     number: card.cardNumber.replace(/\D/g, "").replace(/\s/g, ""),
                     expMonth: expiryMonth,

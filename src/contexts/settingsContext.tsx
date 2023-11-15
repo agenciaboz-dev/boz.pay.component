@@ -1,35 +1,11 @@
 import { createContext, useState } from "react"
 import React from "react"
 
-interface SettingsContextValue {
-    storeIdentifier: string
-
-    pagseguroToken: string
-    pagseguroTokenSandbox: string
-    creditCardPublicKey: string
-    referenceId: string | number
-    onPaid: (charge: Charge) => void
-
-    sandbox?: boolean
-    params?: boolean
-}
-
-interface SettingsProviderProps {
+interface SettingsProviderProps extends Settings {
     children: React.ReactNode
-
-    storeIdentifier: string
-
-    pagseguroToken: string
-    pagseguroTokenSandbox: string
-    creditCardPublicKey: string
-    referenceId: string | number
-    onPaid: (charge: Charge) => void
-
-    sandbox?: boolean
-    params?: boolean
 }
 
-const SettingsContext = createContext<SettingsContextValue>({} as SettingsContextValue)
+const SettingsContext = createContext<Settings>({} as Settings)
 
 export default SettingsContext
 
