@@ -2,6 +2,7 @@ import React from "react"
 import { Box, SxProps } from "@mui/material"
 import App from "./App"
 import { SettingsProvider } from "./contexts/settingsContext"
+import { BrowserRouter } from "react-router-dom"
 
 interface BozPayProps {
     storeIdentifier: string
@@ -39,7 +40,13 @@ export const BozPay: React.FC<BozPayProps> = ({
                 onPaid={onPaid}
                 params={params}
             >
-                <App />
+                {params ? (
+                    <App />
+                ) : (
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                )}
             </SettingsProvider>
         </Box>
     )
