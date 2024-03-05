@@ -10,6 +10,7 @@ import { useIo } from "../hooks/useIo"
 import { useTotalValue } from "../hooks/useTotalValue"
 import PrintIcon from "@mui/icons-material/Print"
 import { Order } from "../definitions/Order"
+import { useSettings } from "../hooks/useSettings"
 
 interface BoletoProps {}
 
@@ -24,6 +25,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
     const width = window.innerWidth
 
     const io = useIo()
+    const settings = useSettings()
 
     const { snackbar } = useSnackbar()
 
@@ -55,9 +57,9 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
                             },
                         },
                     })
-                } else if (charge.status == 'WAITING') {
-                    snackbar({ severity: "info", text: 'Aguardando pagamento' })
-                    
+                    settings.onPaid(charge)
+                } else if (charge.status == "WAITING") {
+                    snackbar({ severity: "info", text: "Aguardando pagamento" })
                 } else {
                     snackbar({ severity: "error", text: charge.payment_response.message })
                 }
@@ -83,7 +85,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
                 flexDirection: "column",
                 overflow: "hidden",
                 alignItems: "center",
-                width: "100%"
+                width: "100%",
             }}
         >
             <Header />
@@ -95,7 +97,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
                     overflowY: "auto",
                     gap: isMobile ? "2vw" : "1vw",
                     padding: isMobile ? "0 0 20vw 0" : "2vw 0 10vw 0",
-                    width: "100%"
+                    width: "100%",
                 }}
             >
                 <SuccessText email={data.order.billing.personalData.email} />
