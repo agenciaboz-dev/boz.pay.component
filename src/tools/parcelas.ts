@@ -3,7 +3,7 @@ export const getParcelas = (value: number | string) => {
 
     const list = parcelas.map((parcela) => {
         const price = (Number(value) / parcela).toFixed(2).toString().replace(".", ",")
-        const text = `x${parcela} de R$ ${price} sem juros`
+        const text = `${parcela}x de R$ ${price} sem juros`
 
         return { id: parcela, text }
     })

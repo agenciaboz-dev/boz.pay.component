@@ -56,6 +56,9 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethod, s
                                 width: isMobile ? "32%" : "10vw",
                                 bgcolor: current ? colors.primary : "white",
                                 pointerEvents: current ? "none" : "auto",
+                                "&:focus": {
+                                    bgcolor: "primary.main",
+                                },
                             }}
                             onClick={() => setPaymentMethod(item.method)}
                         >
