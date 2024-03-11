@@ -45,7 +45,7 @@ export const Paid: React.FC<PaidProps> = ({}) => {
                 overflow: "hidden",
                 alignItems: "center",
                 gap: "3vw",
-                width: "100%"
+                width: "100%",
             }}
         >
             <Header />
@@ -63,7 +63,7 @@ export const Paid: React.FC<PaidProps> = ({}) => {
             >
                 <p style={{ fontWeight: "normal", color: colors.primary }}>
                     <span style={{ fontWeight: "bold" }}>PEDIDO: </span>
-                    {data.order.id}
+                    {data.order.referenceId}
                 </p>
 
                 <Box
