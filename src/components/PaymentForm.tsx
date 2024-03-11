@@ -55,7 +55,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                         name="name"
                         value={values.name}
                         onChange={handleChange}
-                        InputProps={{ readOnly: !!values.name }}
+                        InputProps={{ readOnly: true }}
                         required
                         size={isMobile ? "medium" : "small"}
                     />
@@ -67,7 +67,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                                 value={values.cpf}
                                 onChange={handleChange}
                                 InputProps={{
-                                    readOnly: !!values.cpf,
+                                    readOnly: true,
                                     inputComponent: MaskedInput,
                                     inputProps: { mask: masks.cpf, inputMode: "numeric" },
                                 }}
@@ -83,7 +83,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                                 value={values.phone}
                                 onChange={handleChange}
                                 InputProps={{
-                                    readOnly: !!values.phone,
+                                    readOnly: true,
                                     inputComponent: MaskedInput,
                                     inputProps: { mask: masks.phone, inputMode: "numeric" },
                                 }}
@@ -97,7 +97,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                         name="email"
                         value={values.email}
                         onChange={handleChange}
-                        InputProps={{ readOnly: !!values.email }}
+                        InputProps={{ readOnly: true }}
                         required
                         size={isMobile ? "medium" : "small"}
                     />
@@ -109,7 +109,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                         name="address"
                         value={values.address}
                         onChange={handleChange}
-                        InputProps={{ readOnly: !!values.address }}
+                        InputProps={{ readOnly: true }}
                         required
                         size={isMobile ? "medium" : "small"}
                     />
@@ -121,7 +121,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                                 fullWidth
                                 value={values.number}
                                 onChange={handleChange}
-                                InputProps={{ readOnly: !!values.number }}
+                                InputProps={{ readOnly: true }}
                                 required
                                 size={isMobile ? "medium" : "small"}
                             />
@@ -132,7 +132,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                                 name="complement"
                                 value={values.complement}
                                 onChange={handleChange}
-                                InputProps={{ readOnly: !!values.complement }}
+                                InputProps={{ readOnly: true }}
                                 fullWidth
                                 size={isMobile ? "medium" : "small"}
                             />
@@ -146,7 +146,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                                 value={values.postcode}
                                 onChange={handleChange}
                                 InputProps={{
-                                    readOnly: !!values.postcode,
+                                    readOnly: true,
                                     inputComponent: MaskedInput,
                                     inputProps: { mask: masks.cep, inputMode: "numeric" },
                                 }}
@@ -161,7 +161,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                                 fullWidth
                                 value={values.district}
                                 onChange={handleChange}
-                                InputProps={{ readOnly: !!values.district }}
+                                InputProps={{ readOnly: true }}
                                 required
                                 size={isMobile ? "medium" : "small"}
                             />
@@ -175,7 +175,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                                 fullWidth
                                 value={values.city}
                                 onChange={handleChange}
-                                InputProps={{ readOnly: !!values.city }}
+                                InputProps={{ readOnly: true }}
                                 required
                                 size={isMobile ? "medium" : "small"}
                             />
@@ -187,7 +187,7 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
                                 fullWidth
                                 value={values.state}
                                 onChange={handleChange}
-                                InputProps={{ readOnly: !!values.state }}
+                                InputProps={{ readOnly: true }}
                                 required
                                 size={isMobile ? "medium" : "small"}
                             />
