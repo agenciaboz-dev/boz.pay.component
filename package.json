@@ -1,6 +1,6 @@
 {
     "name": "boz.pay.component",
-    "version": "1.5.2",
+    "version": "1.5.21",
     "main": "built/index.js",
     "types": "built/index.d.ts",
     "author": "burgos",
