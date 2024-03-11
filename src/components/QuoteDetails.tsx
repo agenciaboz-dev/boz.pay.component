@@ -51,7 +51,6 @@ export const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quoteList: originalQ
                         setTotalValue(Number(order.total) + Number(quote.ShippingPrice))
                         setSelectedQuote(quote.ServiceCode)
                     }}
-                    InputProps={{ sx: { paddingRight: isMobile ? "15vw" : "3vw" } }}
                     size={isMobile ? "medium" : "small"}
                 >
                     <MenuItem sx={{ display: "none" }} value={"none"}></MenuItem>
@@ -60,11 +59,11 @@ export const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quoteList: originalQ
                         .filter((quote) => !quote.Error)
                         .map((quote) => (
                             <MenuItem sx={{ flexDirection: "column", alignItems: "flex-start" }} key={quote.ServiceCode} value={quote.ServiceCode}>
-                                <p style={{ fontWeight: "bold" }}>{quote.ServiceDescription}</p>
+                                <Box sx={{ fontWeight: "bold" }}>{quote.ServiceDescription}</Box>
 
-                                <Box sx={{ justifyContent: "space-between", width: "100%" }}>
-                                    <p>{quote.DeliveryTime} dias</p>
-                                    <CurrencyText value={quote.ShippingPrice} />
+                                <Box sx={{ justifyContent: "space-between", width: 1, paddingRight: isMobile ? "20vw" : "3vw" }}>
+                                    <Box sx={{ paddingLeft: "2vw" }}>{quote.DeliveryTime} dias</Box>
+                                    <CurrencyText value={quote.ShippingPrice} style={{ paddingLeft: "2vw" }} />
                                 </Box>
                             </MenuItem>
                         ))}
