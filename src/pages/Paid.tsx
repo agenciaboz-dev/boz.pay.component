@@ -25,7 +25,7 @@ export const Paid: React.FC<PaidProps> = ({}) => {
         useLocation().state.data
 
     const quote = `R$ ${(totalValue - Number(data.order.total)).toFixed(2).toString().replace(".", ",")}`
-    const subtotal = `R$ ${Math.round(data.order.total).toString().replace(".", ",")}`
+    const subtotal = `R$ ${data.order.total.toFixed(2).toString().replace(".", ",")}`
     const total = `R$ ${totalValue.toFixed(2).toString().replace(".", ",")}`
     const installments = getParcelas(totalValue.toFixed(2).toString())
 
