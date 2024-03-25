@@ -20,6 +20,7 @@ import { usePagseguro } from "../hooks/usePagseguro"
 import { useSettings } from "../hooks/useSettings"
 import { Order } from "../definitions/Order"
 import { getCredentials } from "../tools/buildPagseguroCred"
+import { app_version } from "../version"
 
 interface PayProps {}
 
@@ -39,6 +40,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
     const [loading, setLoading] = useState(false)
 
     const initialValues = getPaymentForm(paymentMethod, order?.billing)
+    const currentYear: number = new Date().getFullYear()
 
     const handleSubmit = useCallback(
         async (values: Form | CardForm) => {
@@ -177,6 +179,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
                 flexDirection: "column",
                 overflow: "hidden",
                 width: "100%",
+                height: "100vh",
             }}
         >
             <LoadingOverlay open={loading} />
@@ -232,6 +235,17 @@ export const Pay: React.FC<PayProps> = ({}) => {
                                     >
                                         <p>Esta operação está sendo realizada no Brasil</p>
                                         <img src={brazilFlag} alt="Brasil" />
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            flexDirection: "column",
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        <p>Powered by BOZ</p>
+                                        <p>
+                                            {currentYear} © Direitos reservados - {app_version}
+                                        </p>
                                     </Box>
                                 </Box>
                             </Box>

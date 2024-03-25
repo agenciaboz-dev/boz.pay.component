@@ -2,7 +2,6 @@ import React from 'react'
 import { Box, useMediaQuery } from '@mui/material'
 import logo from '../assets/logo.svg'
 import colors from "../style/colors"
-import { app_version } from "../version"
 
 interface HeaderProps {}
 
@@ -22,7 +21,6 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             }}
         >
             <img src={logo} alt="Boz" style={{ width: isMobile ? "15vw" : "5vw" }} />
-            <Box sx={{ position: "absolute", bottom: 1, right: 1, color: colors.unactive, fontSize: "0.8rem" }}>{app_version}</Box>
         </Box>
     )
 }
