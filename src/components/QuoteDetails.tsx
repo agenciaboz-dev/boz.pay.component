@@ -61,9 +61,9 @@ export const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quoteList: originalQ
                             <MenuItem sx={{ flexDirection: "column", alignItems: "flex-start" }} key={quote.ServiceCode} value={quote.ServiceCode}>
                                 <Box sx={{ fontWeight: "bold" }}>{quote.ServiceDescription}</Box>
 
-                                <Box sx={{ justifyContent: "space-between", width: 1, paddingRight: isMobile ? "20vw" : "3vw" }}>
-                                    <Box sx={{ paddingLeft: "2vw" }}>{quote.DeliveryTime} dias</Box>
-                                    <CurrencyText value={quote.ShippingPrice} style={{ paddingLeft: "2vw" }} />
+                                <Box sx={{ justifyContent: "space-between", flex: 1 }}>
+                                    <Box sx={{ paddingLeft: "2vw" }}>{quote.DeliveryTime} dia(s)</Box>
+                                    <CurrencyText value={quote.ShippingPrice} style={{ paddingRight: 50 }} />
                                 </Box>
                             </MenuItem>
                         ))}
