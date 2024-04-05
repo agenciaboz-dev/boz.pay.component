@@ -45,7 +45,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
     const handleSubmit = useCallback(
         async (values: Form | CardForm) => {
             if (Number(totalValue.toFixed(2)) == order?.total) {
-                snackbar({ severity: "error", text: "Selecione um frete" })
+                snackbar({ severity: "error", text: "Selecione um frete!" })
                 return
             }
             if (loading) return

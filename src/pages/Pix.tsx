@@ -29,7 +29,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
 
     const handleCopy = () => {
         navigator.clipboard.writeText(data.qrcode.text)
-        snackbar({ severity: "info", text: "Copiado" })
+        snackbar({ severity: "info", text: "Copiado!" })
     }
 
     useEffect(() => {
