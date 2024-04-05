@@ -52,6 +52,10 @@ export const Pay: React.FC<PayProps> = ({}) => {
             let encrypted
             if (paymentMethod == "card") {
                 const card = values as CardForm
+                if (card.cardOwner.split(" ").length < 2) {
+                    snackbar({ severity: "info", text: "É obrigatório nome e sobrenome no proprietário do cartão" })
+                    return
+                }
                 try {
                     encrypted = await encrypt(card, order.woocommerce)
                 } catch (error) {
