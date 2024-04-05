@@ -55,7 +55,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
                     })
                     settings.onPaid(charge)
                 } else {
-                    snackbar({ severity: "error", text: charge.payment_response.message })
+                    snackbar({ severity: "error", text: "Algo deu errado! Verifique seus dados e tente novamente." })
                 }
             }
         })
@@ -119,7 +119,10 @@ export const Pix: React.FC<PixProps> = ({}) => {
                             width: "100%",
                         }}
                     >
-                        <p>Você pode utilizar a câmera do seu celular para ler o QR CODE ou copiar o código e pagar no aplicativo de seu banco:</p>
+                        <p>
+                            Você pode utilizar a câmera do seu celular para ler o QR CODE ou copiar o código e pagar no
+                            aplicativo de seu banco:
+                        </p>
                         <Box
                             sx={{
                                 flexDirection: "column",
@@ -127,11 +130,20 @@ export const Pix: React.FC<PixProps> = ({}) => {
                                 gap: isMobile ? "5vw" : "1vw",
                             }}
                         >
-                            <QRCode value={data.qrcode.text} size={isMobile ? width * 0.8 : width * 0.2} bgColor={colors.background} />
+                            <QRCode
+                                value={data.qrcode.text}
+                                size={isMobile ? width * 0.8 : width * 0.2}
+                                bgColor={colors.background}
+                            />
                             <Button variant="contained" sx={{ alignSelf: "center", color: "white" }} onClick={handleCopy}>
                                 Copiar código
                             </Button>
-                            <TextField value={data.qrcode.text} multiline InputProps={{ readOnly: true }} sx={{ width: "100%" }} />
+                            <TextField
+                                value={data.qrcode.text}
+                                multiline
+                                InputProps={{ readOnly: true }}
+                                sx={{ width: "100%" }}
+                            />
                         </Box>
                     </Box>
                 </Box>

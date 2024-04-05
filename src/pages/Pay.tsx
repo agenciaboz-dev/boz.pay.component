@@ -105,7 +105,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
                     })
                     settings.onPaid(charge)
                 } else {
-                    snackbar({ severity: "error", text: charge.payment_response.message })
+                    snackbar({ severity: "error", text: "Algo deu errado! Verifique seus dados e tente novamente." })
                 }
             }
         })
@@ -123,7 +123,8 @@ export const Pay: React.FC<PayProps> = ({}) => {
                 state: {
                     data: {
                         ...data.boleto,
-                        link: data.links.find((link: { href: string; media: string }) => link.media == "application/pdf").href,
+                        link: data.links.find((link: { href: string; media: string }) => link.media == "application/pdf")
+                            .href,
                         order,
                     },
                 },
@@ -159,7 +160,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
 
         io.on("order:pay:error", (error) => {
             console.log(error)
-            snackbar({ severity: "error", text: error.description })
+            snackbar({ severity: "error", text: "Algo deu errado! Verifique seus dados e tente novamente." })
             setLoading(false)
         })
 
@@ -187,7 +188,11 @@ export const Pay: React.FC<PayProps> = ({}) => {
             <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize>
                 {(formikProps) => (
                     <Form>
-                        <DebitAuthenticator {...(formikProps as FormikProps<CardForm>)} submit={handleSubmit} setLoading={setLoading} />
+                        <DebitAuthenticator
+                            {...(formikProps as FormikProps<CardForm>)}
+                            submit={handleSubmit}
+                            setLoading={setLoading}
+                        />
                         <Box
                             sx={{
                                 flexDirection: "column",
@@ -208,7 +213,13 @@ export const Pay: React.FC<PayProps> = ({}) => {
                                 }}
                             >
                                 <PaymentForm {...formikProps} paymentMethod={paymentMethod} />
-                                <Box sx={{ flexDirection: "column", gap: isMobile ? "5vw" : "1vw", width: isMobile ? "100%" : "30%" }}>
+                                <Box
+                                    sx={{
+                                        flexDirection: "column",
+                                        gap: isMobile ? "5vw" : "1vw",
+                                        width: isMobile ? "100%" : "30%",
+                                    }}
+                                >
                                     <OrderDetails order={order} />
                                     <PaymentDetails
                                         order={order}

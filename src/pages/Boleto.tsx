@@ -61,7 +61,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
                 } else if (charge.status == "WAITING") {
                     snackbar({ severity: "info", text: "Aguardando pagamento" })
                 } else {
-                    snackbar({ severity: "error", text: charge.payment_response.message })
+                    snackbar({ severity: "error", text: "Algo deu errado! Verifique seus dados e tente novamente." })
                 }
             }
         })
