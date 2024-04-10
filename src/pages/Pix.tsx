@@ -77,7 +77,9 @@ export const Pix: React.FC<PixProps> = ({}) => {
                 color: colors.unactive,
                 fontWeight: "bold",
                 flexDirection: "column",
-                overflow: "hidden",
+                overflowY: "auto",
+                height: "100vh",
+                scrollbarWidth: "none",
                 alignItems: "center",
                 width: "100%",
             }}
@@ -87,9 +89,8 @@ export const Pix: React.FC<PixProps> = ({}) => {
                 sx={{
                     flexDirection: "column",
                     alignItems: "center",
-                    height: "100vh",
                     overflowX: "hidden",
-                    overflowY: "auto",
+
                     gap: isMobile ? "2vw" : "1vw",
                     padding: isMobile ? "0 0 20vw 0" : "2vw 0 10vw 0",
                     width: "100%",
@@ -119,10 +120,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
                             width: "100%",
                         }}
                     >
-                        <p>
-                            Você pode utilizar a câmera do seu celular para ler o QR CODE ou copiar o código e pagar no
-                            aplicativo de seu banco:
-                        </p>
+                        <p>Você pode utilizar a câmera do seu celular para ler o QR CODE ou copiar o código e pagar no aplicativo de seu banco:</p>
                         <Box
                             sx={{
                                 flexDirection: "column",
@@ -130,20 +128,11 @@ export const Pix: React.FC<PixProps> = ({}) => {
                                 gap: isMobile ? "5vw" : "1vw",
                             }}
                         >
-                            <QRCode
-                                value={data.qrcode.text}
-                                size={isMobile ? width * 0.8 : width * 0.2}
-                                bgColor={colors.background}
-                            />
+                            <QRCode value={data.qrcode.text} size={isMobile ? width * 0.8 : width * 0.2} bgColor={colors.background} />
                             <Button variant="contained" sx={{ alignSelf: "center", color: "white" }} onClick={handleCopy}>
                                 Copiar código
                             </Button>
-                            <TextField
-                                value={data.qrcode.text}
-                                multiline
-                                InputProps={{ readOnly: true }}
-                                sx={{ width: "100%" }}
-                            />
+                            <TextField value={data.qrcode.text} multiline InputProps={{ readOnly: true }} sx={{ width: "100%" }} />
                         </Box>
                     </Box>
                 </Box>

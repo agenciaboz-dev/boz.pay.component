@@ -34,7 +34,8 @@ export const PaymentForm: React.FC<FormikProps<Form | CardForm> & { paymentMetho
         <Box
             sx={{
                 flexDirection: isMobile ? "column" : "row",
-                width: isMobile ? "100%" : "60%",
+                width: isMobile ? "100%" : "auto",
+                flex: isMobile ? undefined : 1,
                 gap: "2vw",
                 paddingRight: isMobile ? 0 : "2vw",
             }}

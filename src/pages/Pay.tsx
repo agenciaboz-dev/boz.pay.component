@@ -182,9 +182,10 @@ export const Pay: React.FC<PayProps> = ({}) => {
                 color: colors.unactive,
                 fontWeight: "bold",
                 flexDirection: "column",
-                overflow: "hidden",
+                overflowY: "auto",
                 width: "100%",
                 height: "100vh",
+                scrollbarWidth: "none",
             }}
         >
             <LoadingOverlay open={loading} />
@@ -192,18 +193,12 @@ export const Pay: React.FC<PayProps> = ({}) => {
             <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize>
                 {(formikProps) => (
                     <Form>
-                        <DebitAuthenticator
-                            {...(formikProps as FormikProps<CardForm>)}
-                            submit={handleSubmit}
-                            setLoading={setLoading}
-                        />
+                        <DebitAuthenticator {...(formikProps as FormikProps<CardForm>)} submit={handleSubmit} setLoading={setLoading} />
                         <Box
                             sx={{
                                 flexDirection: "column",
                                 gap: "2vw",
-                                height: isMobile ? "100vh" : "90vh",
                                 overflowX: "hidden",
-                                overflowY: "auto",
                                 width: "100%",
                             }}
                         >
