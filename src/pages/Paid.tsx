@@ -39,7 +39,7 @@ export const Paid: React.FC<PaidProps> = ({}) => {
         <Box
             sx={{
                 bgcolor: "background.default",
-                color: colors.unactive,
+                color: colors.greyish,
                 fontWeight: "bold",
                 flexDirection: "column",
                 overflowY: "auto",

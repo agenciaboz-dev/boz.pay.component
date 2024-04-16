@@ -4,6 +4,7 @@ const colors = {
     secondary: "#ffffff",
     border: "#C8C9CD",
     unactive: "#A9ACB1",
+    greyish: "#5c5f65",
 }
 
 export default colors
