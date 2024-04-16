@@ -80,7 +80,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
         <Box
             sx={{
                 bgcolor: "background.default",
-                color: colors.unactive,
+                color: colors.greyish,
                 fontWeight: "bold",
                 flexDirection: "column",
                 overflow: "hidden",

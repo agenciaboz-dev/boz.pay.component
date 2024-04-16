@@ -74,7 +74,7 @@ export const Pix: React.FC<PixProps> = ({}) => {
         <Box
             sx={{
                 bgcolor: "background.default",
-                color: colors.unactive,
+                color: colors.greyish,
                 fontWeight: "bold",
                 flexDirection: "column",
                 overflowY: "auto",

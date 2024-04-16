@@ -179,7 +179,7 @@ export const Pay: React.FC<PayProps> = ({}) => {
         <Box
             sx={{
                 bgcolor: "background.default",
-                color: colors.unactive,
+                color: colors.greyish,
                 fontWeight: "bold",
                 flexDirection: "column",
                 overflowY: "auto",
