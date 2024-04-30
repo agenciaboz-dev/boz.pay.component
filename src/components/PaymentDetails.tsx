@@ -52,7 +52,17 @@ export const PaymentDetails: React.FC<PaymentDetailsProps> = ({ order, paymentMe
             >
                 {getParcelas(totalValue).map((item) => (
                     <MenuItem key={item.id} value={item.id}>
-                        {item.text}
+                        <Box
+                            sx={{
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                width: "100%",
+                                fontSize: isMobile ? "1rem" : "1.2vw",
+                            }}
+                        >
+                            {item.text}
+                        </Box>
                     </MenuItem>
                 ))}
             </TextField>

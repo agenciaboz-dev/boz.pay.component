@@ -41,7 +41,7 @@ export const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quoteList: originalQ
         <>
             <p>COTAÇÃO DE ENTREGA</p>
 
-            <Box sx={{ flexDirection: "column", color: "black", gap: "1vw", fontWeight: "bold" }}>
+            <Box sx={{ flexDirection: "column", color: "black", gap: "1vw", fontWeight: "bold", flex: 1 }}>
                 <TextField
                     select
                     value={selectedQuote}
@@ -52,18 +52,33 @@ export const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quoteList: originalQ
                         setSelectedQuote(quote.ServiceCode)
                     }}
                     size={isMobile ? "medium" : "small"}
+                    sx={{ flex: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}
                 >
                     <MenuItem sx={{ display: "none" }} value={"none"}></MenuItem>
 
                     {quoteList
                         .filter((quote) => !quote.Error)
                         .map((quote) => (
-                            <MenuItem sx={{ flexDirection: "column", alignItems: "flex-start" }} key={quote.ServiceCode} value={quote.ServiceCode}>
-                                <Box sx={{ fontWeight: "bold" }}>{quote.ServiceDescription}</Box>
-
-                                <Box sx={{ justifyContent: "space-between", flex: 1 }}>
-                                    <Box sx={{ paddingLeft: "2vw" }}>{quote.DeliveryTime} dia(s)</Box>
-                                    <CurrencyText value={quote.ShippingPrice} style={{ paddingRight: 50 }} />
+                            <MenuItem
+                                sx={{ flexDirection: "column", alignItems: "flex-start", flex: 1 }}
+                                key={quote.ServiceCode}
+                                value={quote.ServiceCode}
+                            >
+                                <Box sx={{ fontWeight: "bold", fontSize: isMobile ? "1rem" : "1.2vw" }}>{quote.ServiceDescription}</Box>
+                                <Box
+                                    sx={{
+                                        justifyContent: "space-between",
+                                        flex: 1,
+                                        padding: "0 45px 0",
+                                        paddingLeft: isMobile ? "2vw" : "0.5vw",
+                                        whiteSpace: "nowrap",
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                        fontSize: isMobile ? "1rem" : "1.2vw",
+                                    }}
+                                >
+                                    <Box>{quote.DeliveryTime} dia(s)</Box>
+                                    <CurrencyText value={quote.ShippingPrice} />
                                 </Box>
                             </MenuItem>
                         ))}
