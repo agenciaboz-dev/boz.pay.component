@@ -46,7 +46,7 @@ export const Paid: React.FC<PaidProps> = ({}) => {
                 height: "100vh",
                 scrollbarWidth: "none",
                 alignItems: "center",
-                gap: "3vw",
+                gap: "2vw",
                 width: "100%",
             }}
         >
