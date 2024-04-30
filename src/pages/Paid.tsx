@@ -57,8 +57,9 @@ export const Paid: React.FC<PaidProps> = ({}) => {
                 sx={{
                     border: `1px solid ${colors.border}`,
                     borderRadius: "2vw",
-                    width: isMobile ? "90vw" : "80vw",
+                    width: isMobile ? "90%" : "80%",
                     padding: isMobile ? "5vw" : "2vw",
+                    marginBottom: "5vw",
                     flexDirection: "column",
                     gap: isMobile ? "5vw" : "2vw",
                 }}
