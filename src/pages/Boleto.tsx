@@ -142,7 +142,7 @@ export const Boleto: React.FC<BoletoProps> = ({}) => {
                                 gap: isMobile ? "5vw" : "1vw",
                             }}
                         >
-                            <Barcode value={data.barcode} background={colors.background} />
+                            <Barcode value={data.barcode} background={colors.background} width={isMobile ? 1 : 2} fontSize={isMobile ? 10 : 20} />
                             {/* <TextField value={data.formatted_barcode} multiline InputProps={{ readOnly: true }} sx={{ width: "100%" }} /> */}
                             <Button variant="contained" sx={{ alignSelf: "center", color: "white" }} onClick={handleCopy}>
                                 Copiar código
